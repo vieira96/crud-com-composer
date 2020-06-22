@@ -15,7 +15,7 @@ if($id) {
     $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
 
-    if($name && $email){
+    if($name && $email && $id){
         $pdo = Connect::getInstance();
         $usuarioDao = new UsuarioDaoMysql($pdo);
         $u = new Usuario();

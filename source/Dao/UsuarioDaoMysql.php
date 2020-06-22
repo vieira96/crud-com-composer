@@ -21,6 +21,7 @@ class UsuarioDaoMysql implements UsuarioDAO {
         $sql->bindValue(':email', $u->getEmail());
         $sql->execute();
     }
+    
     public function findAll(){
         $array = [];
 
@@ -51,6 +52,9 @@ class UsuarioDaoMysql implements UsuarioDAO {
             $u->setEmail($user['email']);
 
             return $u;
+        }else{
+            header("Location: ".CONF_BASE_DIR);
+            exit;
         }
     }
     public function findByEmail($email){
