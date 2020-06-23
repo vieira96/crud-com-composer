@@ -16,3 +16,4 @@ session_start();
   */
 
 define("CONF_BASE_DIR", "http://localhost/crud-com-composer-poo");
+define("CONF_FILE_DIR", CONF_BASE_DIR ."/source/upload/");

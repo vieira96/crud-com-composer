@@ -15,7 +15,7 @@
     }
 
 ?>
-<form method="POST" action="actions/editar_action.php?id=<?=$usuario->getId();?>">
+<form method="POST" action="actions/editar_action.php?id=<?=$usuario->getId();?>" enctype="multipart/form-data">
     <h1>Editando Usuário <?= $usuario->getName();?></h1>
     <label>
         Nome:<br>
@@ -26,6 +26,12 @@
         E-mail:<br>
         <input type="email" name="email" value="<?= $usuario->getEmail(); ?>">
     </label><br><br>
+
+    <label>
+        Imagem:<br>
+        <input type="file" name="file">
+    </label><br><br>
+
     <input type="submit" value="Atualizar">
 
 </form>

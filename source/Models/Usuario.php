@@ -6,6 +6,7 @@ class Usuario {
     private $id;
     private $name;
     private $email;
+    private $img;
     
     
 
@@ -61,6 +62,24 @@ class Usuario {
     public function setEmail($email)
     {
         $this->email = strtolower(trim($email));
+    }
+
+    /**
+     * Get the value of img
+     */ 
+    public function getImg()
+    {
+        return $this->img;
+    }
+
+    /**
+     * Set the value of img
+     *
+     * @return  self
+     */ 
+    public function setImg($img)
+    {
+        $this->img = $img;
     }
 }
 

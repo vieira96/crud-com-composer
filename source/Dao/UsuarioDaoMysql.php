@@ -16,9 +16,10 @@ class UsuarioDaoMysql implements UsuarioDAO {
     }
 
     public function add(Usuario $u){
-        $sql = $this->pdo->prepare("INSERT INTO usuarios (name, email) VALUES (:name, :email)");
+        $sql = $this->pdo->prepare("INSERT INTO usuarios (name, email, img) VALUES (:name, :email, :img)");
         $sql->bindValue(':name', $u->getName());
         $sql->bindValue(':email', $u->getEmail());
+        $sql->bindValue(":img", $u->getImg());
         $sql->execute();
     }
     
@@ -33,7 +34,7 @@ class UsuarioDaoMysql implements UsuarioDAO {
                 $u->setId($usuario['id']);
                 $u->setName($usuario['name']);
                 $u->setEmail($usuario['email']);
-
+                $u->setImg($usuario['img']);
                 $array[] = $u;
             }
         }
@@ -50,7 +51,7 @@ class UsuarioDaoMysql implements UsuarioDAO {
             $u->setId($user['id']);
             $u->setName($user['name']);
             $u->setEmail($user['email']);
-
+            $u->setImg($user['img']);
             return $u;
         }else{
             header("Location: ".CONF_BASE_DIR);
@@ -63,10 +64,11 @@ class UsuarioDaoMysql implements UsuarioDAO {
 
     public function update(Usuario $u){
 
-        $sql = $this->pdo->prepare("UPDATE usuarios SET name = :name, email = :email WHERE id = :id");
+        $sql = $this->pdo->prepare("UPDATE usuarios SET name = :name, email = :email, img = :img WHERE id = :id");
         $sql->bindValue(":name", $u->getName());
         $sql->bindValue(":email", $u->getEmail());
         $sql->bindValue(":id", $u->getId());
+        $sql->bindValue(":img", $u->getImg());
         $sql->execute();
 
         return true;

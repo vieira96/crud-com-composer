@@ -6,5 +6,8 @@
         "files": [
             "source/Support/Config.php"
         ]
+    },
+    "require": {
+        "twbs/bootstrap": "5.0.0-alpha1"
     }
 }
